@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>About Us - Emerge</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'stylesheet.css' %}">
+</head>
+<header class="header">
+    <img src="{% static 'images/ara_logo.png' %}" alt="Emerge Logo">
+    <h1>Emerge Exhibition</h1>
+</header>
+<body class="about-body">
+    <nav class="navbar navbar-light">
+        <a href="{% url 'home' %}" class="navbar-link btn-lg">Home</a>
+        <a href="{% url 'about' %}" class="navbar-link btn-lg">About</a>
+        <a href="{% url 'emerge' %}" class="navbar-link btn-lg">Emerge Projects</a>
+        <a href="{% url 'admin:index' %}" class='navbar-link btn-lg'>Admin</a>
+        <!-- <a href="{% url 'upload-project' %}" class="navbar-link btn-lg">Upload Projects</a> -->
+    </nav>
+
+    <div class="container-mt-4">
+        <h1 class="display-4 text-center about-title">About Emerge Exhibition</h1>
+        <p class="lead about-description">The Emerge Exhibition showcases the outstanding projects developed by our students during their academic journey. Our aim is to provide a platform where innovation meets creativity, encouraging students to share their work with the community.</p>
+        <p class="about-description">We believe in fostering a collaborative environment where ideas can flourish. Join us in celebrating the talents and hard work of our students!</p>
+        <h2>Where Emerge Is Held</h2>
+        <p>
+            Emerge is held at Ara's Christchurch City campus located at 130 Madras Street, the event is held in the 2nd Level of the Kahukura Building.
+            <br>Kahukura is directly on Moorhouse Ave and is home to Engineering and Architectural Studies.
+        </p>
+        <h2>When Emerge Is Held</h2>
+        <p>
+            Emerge is held 2 a year after each semester.
+            <br>Details: TBA.
+        </p>
+    </div>
+</body>
+</html>
