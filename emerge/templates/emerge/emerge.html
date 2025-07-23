@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Emerge</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/2I/5U5n3e+T4nN4yYl6G0X5RFMGQG9t5K1M97d" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'stylesheet.css' %}">
+</head>
+<header class="header">
+    <img src="{% static 'images/ara_logo.png' %}" alt="Emerge Logo">
+    <h1>Emerge Exhibition</h1>
+</header>
+<body class="emerge-body">
+    <nav class="navbar navbar-light">
+        <a href="{% url 'home' %}" class="navbar-link btn-lg">Home</a>
+        <a href="{% url 'about' %}" class="navbar-link btn-lg">About</a>
+        <a href="{% url 'emerge' %}" class="navbar-link btn-lg">Emerge Projects</a>
+        <a href="{% url 'admin:index' %}" class='navbar-link btn-lg'>Admin</a>
+        <a href="{% url 'upload-project' %}" class="navbar-link btn-lg">Upload Projects</a>
+    </nav>
+<br>
+{% block content %}
+<div class="card-container">
+    {% for project in shelf %}
+    <div class="card">
+        <h5 class="card-title">{{ project.project_name }}</h5>
+        <p class="card-text">{{ project.student_name }}, {{ project.year }} {{ project.semester }}</p>
+        <img class="card-img-top" src="{{ project.project_photo.url }}" alt="Project Poster">
+        <div class="card-body">
+            <img class="card-img-top" src="{{ project.student_photo.url }}" alt="Student Photo">
+            <p class="card-text"><strong>{{ project.student_name }}</strong></p>
+            <a href="{{ project.short_paper.url }}" class="btn btn-info">Download Short Paper</a>
+            <div class="card-footer bg-transparent border-dark">
+                <a href="{% url 'update-project' project.id %}" class="btn btn-warning">Edit</a>
+                <a href="{% url 'delete-project' project.id %}" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+</body>
+</html>
